@@ -31,6 +31,12 @@ Route::get("product/{id}", [
     "uses" => "ProductController@show"
 ]);
 
+Route::get("product/underCategory/{id}", [
+    "as"   => "product/getProductsByCategory",
+    "uses" => "ProductController@getProductsByCategory"
+]);
+
+
 
 /*
 *	product's category 
@@ -45,3 +51,9 @@ Route::get("category/{id}", [
     "as"   => "category/show",
     "uses" => "CategoryController@show"
 ]);
+
+Route::get("category/getProductsFor/{id}", [
+    "as"   => "category/getProducts",
+    "uses" => "CategoryController@getProducts"
+]);
+

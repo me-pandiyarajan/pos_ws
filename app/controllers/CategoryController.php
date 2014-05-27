@@ -82,4 +82,17 @@ class CategoryController extends \BaseController {
 		//
 	}
 
+	/**
+	 * Display a listing of the products in given category.
+	 *
+	 * @return Response
+	 */
+	public function getProducts($id)
+	{
+		$products = Category::find($id)->product;
+		return $products;
+	}
+
+
+
 }

@@ -11,8 +11,8 @@ class ProductController extends \BaseController {
 	{
 		$columnNames = array('Product_ID_PLU','sku');
 		return Product::select($columnNames)
-						->Where('status',0)
-						->Where('deleted', 1)
+						->where('status',1)
+						->where('deleted', 0)
 						->get();
 	}
 
@@ -78,6 +78,19 @@ class ProductController extends \BaseController {
 	public function destroy($id)
 	{
 		//
+	}
+
+	/**
+	 * Display a listing of the products in given category.
+	 *
+	 * @return Response
+	 */
+	public function getProductsByCategory($id)
+	{	
+		return $products = Product::where('categories_category_id',$id)
+									->where('status',1)
+									->where('deleted', 0)
+									->get();
 	}
 
 }
